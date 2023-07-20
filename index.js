@@ -12,6 +12,7 @@ const createTimerAnimator = () => {
             if (sec === 0) {
                 clearInterval(timer);
                 timerEl.innerHTML = 'hh:mm:ss';
+                buttonEl.disabled = false;
             } else {
                 timerEl.innerHTML = new Date(sec*1000).toUTCString().split(/ /)[4];
             }
@@ -26,6 +27,7 @@ inputEl.addEventListener('input', (e) => {
 });
 
 buttonEl.addEventListener('click', () => {
+    buttonEl.disabled = true;
     const seconds = Number(inputEl.value);
 
     timerEl.innerHTML = new Date(seconds*1000).toUTCString().split(/ /)[4];
